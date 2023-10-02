@@ -1,0 +1,28 @@
+{
+  "tilejson": "2.2.0",
+  "tiles": ["https://sloy.io/tiles/{z}/{x}/{y}.mvt?v=1"],
+  "minzoom": 10,
+  "maxzoom": 16,
+  "bounds": [
+    24.64195239823312, 59.394940357088316, 24.827728271484375, 59.49286333494736
+  ],
+  "center": [24.745188, 59.437065, 15],
+  "vector_layers": [
+    { "id": "aerialway" },
+    { "id": "aeroway" },
+    { "id": "amenity" },
+    { "id": "attraction" },
+    { "id": "barrier" },
+    { "id": "building" },
+    { "id": "highway" },
+    { "id": "landuse" },
+    { "id": "leisure" },
+    { "id": "man_made" },
+    { "id": "natural" },
+    { "id": "point" },
+    { "id": "power" },
+    { "id": "railway" },
+    { "id": "route" },
+    { "id": "waterway" }
+  ]
+}
