@@ -2,5 +2,9 @@
     Content-Encoding: gzip
     Cache-Control: public, max-age=2592000, immutable
 
+/helsinki/tiles/*
+    Content-Encoding: gzip
+    Cache-Control: public, max-age=2592000, immutable
+
 /*
   Access-Control-Allow-Origin: https://sloy.io
