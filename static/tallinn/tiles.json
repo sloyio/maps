@@ -1,6 +1,6 @@
 {
   "tilejson": "2.2.0",
-  "tiles": ["https://sloy.io/tiles/{z}/{x}/{y}.mvt?v=1"],
+  "tiles": ["https://sloy.io/tallinn/tiles/{z}/{x}/{y}.mvt?v=1"],
   "minzoom": 10,
   "maxzoom": 16,
   "bounds": [

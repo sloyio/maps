@@ -4,7 +4,7 @@
   "sources": {
     "baremaps": {
       "type": "vector",
-      "url": "https://sloy.io/tiles.json"
+      "url": "https://sloy.io/tallinn/tiles.json"
     }
   },
   "sprite": "https://tiles.baremaps.com/sprites/osm/sprite",
