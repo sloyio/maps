@@ -1,6 +1,8 @@
 {
   "version": 8,
   "name": "sloy",
+  "center": [60.6099, 56.83898],
+  "zoom": 14,
   "sources": {
     "baremaps": {
       "type": "vector",
@@ -14,18 +16,16 @@
       "id": "background",
       "type": "background",
       "source": "baremaps",
-      "layout": {
-        "visibility": "visible"
-      },
       "minzoom": 0,
       "maxzoom": 24,
-      "paint": {
-        "background-color": "#010508"
-      }
+      "layout": { "visibility": "visible" },
+      "paint": { "background-color": "#010508" }
     },
     {
       "id": "natural",
       "type": "fill",
+      "source": "baremaps",
+      "source-layer": "natural",
       "filter": [
         "any",
         ["==", ["get", "natural"], "glacier"],
@@ -41,8 +41,6 @@
           ["==", ["get", "water"], "lake"]
         ]
       ],
-      "source": "baremaps",
-      "source-layer": "natural",
       "layout": {
         "fill-sort-key": [
           "case",
@@ -85,6 +83,8 @@
     {
       "id": "leisure",
       "type": "fill",
+      "source": "baremaps",
+      "source-layer": "leisure",
       "filter": [
         "all",
         ["==", ["geometry-type"], "Polygon"],
@@ -104,8 +104,6 @@
           ["==", ["get", "leisure"], "park"]
         ]
       ],
-      "source": "baremaps",
-      "source-layer": "leisure",
       "layout": {
         "fill-sort-key": [
           "case",
@@ -137,13 +135,13 @@
         ],
         "visibility": "visible"
       },
-      "paint": {
-        "fill-color": "#001e0a"
-      }
+      "paint": { "fill-color": "rgba(0, 41, 28, 1)" }
     },
     {
       "id": "landuse_overlay",
       "type": "fill",
+      "source": "baremaps",
+      "source-layer": "landuse",
       "filter": [
         "any",
         ["==", ["get", "landuse"], "grass"],
@@ -151,18 +149,14 @@
         ["==", ["get", "landuse"], "greenhouse_horticulture"],
         ["==", ["get", "landuse"], "orchard"]
       ],
-      "source": "baremaps",
-      "source-layer": "landuse",
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#001e0a"
-      }
+      "layout": { "visibility": "visible" },
+      "paint": { "fill-color": "rgba(0, 41, 28, 1)" }
     },
     {
       "id": "natural_overlay",
       "type": "fill",
+      "source": "baremaps",
+      "source-layer": "natural",
       "filter": [
         "any",
         ["==", ["get", "natural"], "beach"],
@@ -175,8 +169,6 @@
         ],
         ["==", ["get", "natural"], "wetland"]
       ],
-      "source": "baremaps",
-      "source-layer": "natural",
       "layout": {
         "fill-sort-key": [
           "case",
@@ -206,7 +198,7 @@
             ["==", ["get", "natural"], "water"],
             ["!=", ["get", "water"], "lake"]
           ],
-          "#083245",
+          "#0A5170",
           "rgba(0, 0, 0, 0)"
         ],
         "fill-antialias": true
@@ -215,9 +207,9 @@
     {
       "id": "waterway",
       "type": "line",
-      "filter": ["all", ["!=", "tunnel", "yes"], ["!=", "tunnel", "culvert"]],
       "source": "baremaps",
       "source-layer": "waterway",
+      "filter": ["all", ["!=", "tunnel", "yes"], ["!=", "tunnel", "culvert"]],
       "layout": {
         "line-cap": "round",
         "line-join": "round",
@@ -233,25 +225,23 @@
           20,
           12
         ],
-        "line-color": "#083245"
+        "line-color": "rgba(10, 81, 112, 1)"
       }
     },
     {
       "id": "amenity_fill_2",
       "type": "fill",
-      "filter": ["any", ["==", ["get", "amenity"], "fountain"]],
       "source": "baremaps",
       "source-layer": "amenity",
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "#083245"
-      }
+      "filter": ["any", ["==", ["get", "amenity"], "fountain"]],
+      "layout": { "visibility": "visible" },
+      "paint": { "fill-color": "#083245" }
     },
     {
       "id": "highway_line",
       "type": "line",
+      "source": "baremaps",
+      "source-layer": "highway",
       "filter": [
         "all",
         [
@@ -300,15 +290,13 @@
           ]
         ]
       ],
-      "source": "baremaps",
-      "source-layer": "highway",
       "layout": {
         "visibility": "visible",
         "line-cap": "round",
         "line-join": "round"
       },
       "paint": {
-        "line-color": "#171930",
+        "line-color": "rgba(26, 50, 65, 1)",
         "line-width": [
           "interpolate",
           ["exponential", 1.2],
@@ -374,6 +362,8 @@
     {
       "id": "highway_dash",
       "type": "line",
+      "source": "baremaps",
+      "source-layer": "highway",
       "filter": [
         "any",
         ["==", ["get", "highway"], "bridleway"],
@@ -419,8 +409,6 @@
         ],
         ["all", ["==", ["get", "highway"], "track"]]
       ],
-      "source": "baremaps",
-      "source-layer": "highway",
       "layout": {
         "line-cap": "round",
         "line-join": "round",
@@ -494,6 +482,8 @@
     {
       "id": "railway_line",
       "type": "line",
+      "source": "baremaps",
+      "source-layer": "railway",
       "filter": [
         "all",
         ["!=", ["get", "tunnel"], "yes"],
@@ -518,8 +508,6 @@
           ["==", ["get", "railway"], "narrow_gauge"]
         ]
       ],
-      "source": "baremaps",
-      "source-layer": "railway",
       "layout": {
         "visibility": "visible",
         "line-cap": "round",
@@ -575,6 +563,8 @@
     {
       "id": "bridge_outline",
       "type": "line",
+      "source": "baremaps",
+      "source-layer": "highway",
       "filter": [
         "all",
         ["any", ["==", ["get", "bridge"], "yes"]],
@@ -616,8 +606,6 @@
           ]
         ]
       ],
-      "source": "baremaps",
-      "source-layer": "highway",
       "layout": {
         "visibility": "visible",
         "line-cap": "butt",
@@ -742,6 +730,9 @@
     {
       "id": "bridge_line",
       "type": "line",
+      "source": "baremaps",
+      "source-layer": "highway",
+      "minzoom": 0,
       "filter": [
         "all",
         ["any", ["==", ["get", "bridge"], "yes"]],
@@ -785,14 +776,11 @@
           ]
         ]
       ],
-      "source": "baremaps",
-      "source-layer": "highway",
       "layout": {
         "visibility": "visible",
         "line-cap": "butt",
         "line-join": "miter"
       },
-      "minzoom": 0,
       "paint": {
         "line-color": "#171930",
         "line-width": [
@@ -882,7 +870,7 @@
         "icon-size": 1
       },
       "paint": {
-        "text-color": "rgba(255, 255, 255, .3)",
+        "text-color": "rgba(148, 241, 255, 0.4)",
         "text-halo-color": "rgba(0, 0, 0, 0.8)",
         "text-halo-width": 1,
         "text-opacity": 1
@@ -891,9 +879,10 @@
     {
       "id": "waterway_label",
       "type": "symbol",
-      "filter": ["==", ["get", "waterway"], "river"],
       "source": "baremaps",
       "source-layer": "waterway",
+      "minzoom": 12,
+      "filter": ["==", ["get", "waterway"], "river"],
       "layout": {
         "visibility": "visible",
         "text-font": ["Iset Sans Regular"],
@@ -913,7 +902,6 @@
         "text-letter-spacing": 0.2,
         "text-transform": "uppercase"
       },
-      "minzoom": 12,
       "paint": {
         "text-color": "rgba(10, 120, 160, 1)",
         "text-halo-color": "rgba(0, 0, 0, 0)",
@@ -925,11 +913,9 @@
       "type": "fill-extrusion",
       "source": "baremaps",
       "source-layer": "building",
-      "layout": {
-        "visibility": "visible"
-      },
+      "layout": { "visibility": "visible" },
       "paint": {
-        "fill-extrusion-color": "#0c1021",
+        "fill-extrusion-color": "rgba(2, 11, 22, 1)",
         "fill-extrusion-height": ["get", "building:height"],
         "fill-extrusion-base": 0,
         "fill-extrusion-opacity": {
@@ -977,6 +963,5 @@
       }
     }
   ],
-  "center": [60.6099, 56.83898],
-  "zoom": 14
+  "id": "8uwjfl2j6"
 }
